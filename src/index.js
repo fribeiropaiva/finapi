@@ -105,4 +105,16 @@ app.get("/statement/date", verifyCpfExistence, (request, response) => {
 
   return response.json(statement);
 });
+
+app.put("/account", verifyCpfExistence, (request, response) => {
+  const { name } = request.body;
+  const { customer } = request;
+
+  customer.name = name;
+
+  return response.status(201).send();
+});
+
+
+
 app.listen(3333);
