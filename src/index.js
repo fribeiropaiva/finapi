@@ -115,6 +115,10 @@ app.put("/account", verifyCpfExistence, (request, response) => {
   return response.status(201).send();
 });
 
+app.get("/account", verifyCpfExistence, (request, response) => {
+  const { customer } = request;
 
+  return response.json(customer);
+})
 
 app.listen(3333);
